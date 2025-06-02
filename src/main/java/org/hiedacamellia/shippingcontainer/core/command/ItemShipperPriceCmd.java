@@ -14,7 +14,7 @@ import org.hiedacamellia.shippingcontainer.core.config.json.ItemShipperPrice;
 public class ItemShipperPriceCmd {
     @SubscribeEvent
     public static void registerCommand(RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("mystiasizakaya").then(Commands.literal("price_addon")
+        event.getDispatcher().register(Commands.literal("shippingcontainer").then(Commands.literal("ship_price")
                 .then(Commands.literal("open").executes(
                         context -> {
                             ServerPlayer serverPlayer = context.getSource().getPlayer();
