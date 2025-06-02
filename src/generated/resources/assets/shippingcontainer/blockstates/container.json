@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "shippingcontainer:block/container",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "shippingcontainer:block/container"
+    },
+    "facing=south": {
+      "model": "shippingcontainer:block/container",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "shippingcontainer:block/container",
+      "y": 270
+    }
+  }
+}
