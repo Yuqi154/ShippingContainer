@@ -8,21 +8,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.hiedacamellia.immersiveui.client.graphic.util.IUIGuiUtils;
-import org.hiedacamellia.immersiveui.client.gui.component.widget.price.ItemPriceWidget;
 import org.hiedacamellia.shippingcontainer.common.menu.ContainerMenu;
-import org.hiedacamellia.shippingcontainer.core.config.json.ItemShipperPrice;
 import org.hiedacamellia.shippingcontainer.core.network.ResetShipC2SMessage;
-import org.hiedacamellia.shippingcontainer.core.util.ItemExchangeUtil;
 
 public class ContainerScreen extends AbstractContainerScreen<ContainerMenu> {
 
     private ContainerData data;
     private BlockPos pos;
 
-    private ItemPriceWidget widget;
 
     public ContainerScreen(ContainerMenu container, Inventory inventory, Component text) {
         super(container, inventory, text);
@@ -44,22 +39,6 @@ public class ContainerScreen extends AbstractContainerScreen<ContainerMenu> {
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
 
-
-        Slot slotUnderMouse = getSlotUnderMouse();
-        if(slotUnderMouse==null)return;
-        ItemStack item = slotUnderMouse.getItem();
-        if(!item.isEmpty()){
-            if (ItemShipperPrice.hasPrice(item)) {
-                if(widget==null||!ItemStack.isSameItem(widget.getItemStackWant(),item)) {
-                    ItemExchangeUtil.Data data1 = ItemShipperPrice.getPrice(item).build();
-                    widget = new ItemPriceWidget(leftPos+imageWidth/2-60,topPos-30,
-                            data1.want().getDefaultInstance(),data1.wantCount(),data1.give().getDefaultInstance(),data1.giveCount());
-                }
-            }
-            if(widget!=null) {
-                widget.render(guiGraphics, mouseX, mouseY, partialTicks);
-            }
-        }
 
     }
 
