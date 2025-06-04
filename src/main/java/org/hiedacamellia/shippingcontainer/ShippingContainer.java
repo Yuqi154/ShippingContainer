@@ -35,9 +35,6 @@ public class ShippingContainer
 
         modContainer.registerConfig(ModConfig.Type.COMMON, SCCommonConfig.SPEC);
 
-
-        if(FMLLoader.getDist().isClient())
-            modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
     public static ResourceLocation rl(String path) {

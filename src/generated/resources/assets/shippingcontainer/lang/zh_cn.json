@@ -4,6 +4,7 @@
   "gui.shipping_container.ship_time": "回收于: %d 秒",
   "gui.shipping_container.title": "出货箱",
   "gui.shippingcontainer.item_shipper_price.title": "出货箱价格设置",
+  "gui.shippingcontainer.shift": "按住Shift查看价格",
   "item_group.shippingcontainer.main": "出货箱",
   "shippingcontainer.configuration.shipping_time": "出货箱回收时间"
 }

@@ -24,6 +24,8 @@ public class EnglishLanguageProvider extends LanguageProvider {
 
         add("gui.shippingcontainer.item_shipper_price.title", "Item Shipper Price Modifier");
 
+        add("gui.shippingcontainer.shift","Press Shift to view price");
+
         add("shippingcontainer.configuration.shipping_time", "Shipping Time");
     }
 }

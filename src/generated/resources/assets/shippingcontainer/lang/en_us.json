@@ -4,6 +4,7 @@
   "gui.shipping_container.ship_time": "Will Ship In %d Seconds",
   "gui.shipping_container.title": "Shipping Container",
   "gui.shippingcontainer.item_shipper_price.title": "Item Shipper Price Modifier",
+  "gui.shippingcontainer.shift": "Press Shift to view price",
   "item_group.shippingcontainer.main": "Shipping Container",
   "shippingcontainer.configuration.shipping_time": "Shipping Time"
 }

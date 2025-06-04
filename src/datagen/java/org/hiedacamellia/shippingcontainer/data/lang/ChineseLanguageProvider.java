@@ -24,6 +24,8 @@ public class ChineseLanguageProvider extends LanguageProvider {
 
         add("gui.shippingcontainer.item_shipper_price.title", "出货箱价格设置");
 
+        add("gui.shippingcontainer.shift","按住Shift查看价格");
+
         add("shippingcontainer.configuration.shipping_time", "出货箱回收时间");
     }
 }
