@@ -34,7 +34,7 @@ import java.util.HashMap;
 
 public class ContainerBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
 
-    private NonNullList<ItemStack> stacks = NonNullList.withSize(27, ItemStack.EMPTY);
+    private NonNullList<ItemStack> stacks = NonNullList.withSize(54, ItemStack.EMPTY);
     private final SidedInvWrapper handler = new SidedInvWrapper(this, null);
     private final ContainerData data = new SimpleContainerData(2);
 
@@ -72,7 +72,8 @@ public class ContainerBlockEntity extends RandomizableContainerBlockEntity imple
         if(direction==Direction.DOWN){
             return new int[]{};
         }
-        return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
+        return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
+        , 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53};
     }
 
     @Override
@@ -171,15 +172,23 @@ public class ContainerBlockEntity extends RandomizableContainerBlockEntity imple
         }
 
         HashMap<Item, Integer> out = new HashMap<>();
-        map.forEach((a,b)->{
+        map.forEach((a, b) -> {
             ItemExchangeUtil.Data data = ItemShipperPrice.getPrice(a).build();
             int i = b / data.wantCount();
             int o = i * data.giveCount();
-            if(o > 0) {
-                out.put(data.give(), o);
+            if (o > 0) {
+                if (out.containsKey(data.give())) {
+                    out.put(data.give(), o + out.get(data.give()));
+                } else {
+                    out.put(data.give(), o);
+                }
             }
-            if(b-i*data.wantCount() > 0) {
-                out.put(a, b-i*data.wantCount());
+            if (b - i * data.wantCount() > 0) {
+                if (out.containsKey(a)) {
+                    out.put(a, b - i * data.wantCount() + out.get(a));
+                } else {
+                    out.put(a, b - i * data.wantCount());
+                }
             }
         });
 

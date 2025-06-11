@@ -24,7 +24,7 @@ public class ContainerScreen extends AbstractContainerScreen<ContainerMenu> {
         this.data = container.data;
         this.pos = container.pos;
         this.imageWidth = 180;
-        this.imageHeight = 166;
+        this.imageHeight = 226;
     }
 
     @Override
@@ -71,14 +71,9 @@ public class ContainerScreen extends AbstractContainerScreen<ContainerMenu> {
         super.renderSlot(guiGraphics,slot);
     }
 
-
-
-
     @Override
     public void init() {
         super.init();
-
-
     }
 
 }

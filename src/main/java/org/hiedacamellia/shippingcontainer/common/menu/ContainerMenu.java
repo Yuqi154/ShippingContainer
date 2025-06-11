@@ -35,7 +35,7 @@ public class ContainerMenu extends BaseMenu {
 	}
 
 	public ContainerMenu(int containerId, Inventory inventory, ContainerLevelAccess access, BlockPos pos) {
-		this(containerId, inventory, access, new ItemStackHandler(40), new SimpleContainerData(9),pos);
+		this(containerId, inventory, access, new ItemStackHandler(60), new SimpleContainerData(9),pos);
 	}
 
 	public ContainerMenu(int id, Inventory inv, ContainerLevelAccess access, IItemHandler itemHandler, ContainerData containerData, BlockPos pos) {
@@ -51,16 +51,16 @@ public class ContainerMenu extends BaseMenu {
 		this.addDataSlots(data);
 
 
-		for (int si = 0; si < 3; ++si)
+		for (int si = 0; si < 6; ++si)
 			for (int sj = 0; sj < 9; ++sj)
 				this.customSlots.put(sj + (si) * 9, this.addSlot(new SlotItemHandler(itemHandler, sj + (si) * 9, 10 + sj * 18, 2 + 24 + si * 18)));
 
 
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
-				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 10 + sj * 18, 2 + 84 + si * 18));
+				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 10 + sj * 18, 2 + 84 + 60 + si * 18));
 		for (int si = 0; si < 9; ++si)
-			this.addSlot(new Slot(inv, si, 10 + si * 18, 2 + 142));
+			this.addSlot(new Slot(inv, si, 10 + si * 18, 2 + 142 + 60));
 	}
 
 	@Override
